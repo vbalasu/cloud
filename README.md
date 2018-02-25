@@ -1,6 +1,6 @@
 # cloud
 
-Command line interface for handling CSV files in Cloudmatica
+Command line interface for handling CSV files in the cloud
 
 Supports the following commands:
 

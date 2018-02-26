@@ -23,3 +23,7 @@ USAGE EXAMPLES
 put: Uploads local file and returns a cloud url
 
 get: Retrieves file and outputs to the console
+
+append: (not yet implemented)
+
+delete: (not yet implemented)

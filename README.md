@@ -1,11 +1,25 @@
 # cloud
 
+usage: cloud.py [-h] command filename domain [contents]
+
 Command line interface for handling CSV files in the cloud
 
-Supports the following commands:
+positional arguments:
+  command     put | get
+  filename    Eg. test.csv
+  domain      Eg. public
+  contents    Eg. test.csv  (Required if command is put)
 
-`cloud put <domain>/<csvfile.csv>`
-Uploads local file and returns a cloud url
+optional arguments:
+  -h, --help  show this help message and exit
 
-`cloud get <domain>/<csvfile.csv>`
-Retrieves file and outputs to the console
+USAGE EXAMPLES 
+ python cloud.py put test.csv public test.csv 
+ python cloud.py get test.csv 
+
+
+
+
+
+put: Uploads local file and returns a cloud url
+get: Retrieves file and outputs to the console

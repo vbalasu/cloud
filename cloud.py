@@ -21,11 +21,13 @@ def cloudPut(filename, domain, contents):
     response = requests.request("GET", url, headers=headers, params=querystring, json=data)
     print(response.text)
 
-parser = argparse.ArgumentParser(description='Command line interface for handling CSV files in the cloud')
+from argparse import RawTextHelpFormatter
+epilog = 'USAGE EXAMPLES \n python cloud.py put test.csv public test.csv \n python cloud.py get test.csv \n'
+parser = argparse.ArgumentParser(description='Command line interface for handling CSV files in the cloud', epilog=epilog, formatter_class=RawTextHelpFormatter)
 parser.add_argument('command', help='put | get')
 parser.add_argument('filename', help='Eg. test.csv')
 parser.add_argument('domain', help='Eg. public')
-parser.add_argument('contents', help='Eg. test.csv', type=argparse.FileType('r'))
+parser.add_argument('contents', help='Eg. test.csv  (Required if command is put)', nargs='?', type=argparse.FileType('r'))
 args = parser.parse_args()
 print(args)
 

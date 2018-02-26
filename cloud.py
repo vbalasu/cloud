@@ -16,22 +16,21 @@ def cloudPut(filename, domain, contents):
     url = "https://cloudmaticafunctions.azurewebsites.net/api/cloudPut"
     querystring = {"code":"SDSGxtRh2S5RrSW/aNiFfgTE1bJhMqof3aiFdp8p7iYMjns/mFes0A=="}
     data = {"filename": filename, "domain": domain, "contents": contents}
-    print(data)
     headers = {'cache-control': "no-cache"}
     response = requests.request("GET", url, headers=headers, params=querystring, json=data)
     print(response.text)
 
 from argparse import RawTextHelpFormatter
-epilog = 'USAGE EXAMPLES \n python cloud.py put test.csv public test.csv \n python cloud.py get test.csv \n'
+epilog = 'USAGE EXAMPLES \n cloud put test.csv \n cloud get test.csv \n cloud --domain public get test.csv'
 parser = argparse.ArgumentParser(description='Command line interface for handling CSV files in the cloud', epilog=epilog, formatter_class=RawTextHelpFormatter)
 parser.add_argument('command', help='put | get')
 parser.add_argument('filename', help='Eg. test.csv')
-parser.add_argument('domain', help='Eg. public')
-parser.add_argument('contents', help='Eg. test.csv  (Required if command is put)', nargs='?', type=argparse.FileType('r'))
+parser.add_argument('--domain', help='Eg. public', default='public')
 args = parser.parse_args()
-print(args)
+with open(args.filename) as f:
+    contents = f.read()
 
 if args.command == 'put':
-    cloudPut(args.filename, args.domain, args.contents.read())
+    cloudPut(args.filename, args.domain, contents)
 else:
     cloudGet(args.filename, args.domain)

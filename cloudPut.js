@@ -1,10 +1,9 @@
 //https://github.com/vbalasu/cloud/cloudPut.js
 module.exports = function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
-
-    var filename = req.query.filename?req.query.filename:req.body.filename
-    var domain = req.query.domain?req.query.domain:req.body.domain
-    var contents = req.query.contents?req.query.contents:req.body.contents
+    var filename = req.body.filename
+    var domain = req.body.domain
+    var contents = req.body.contents
     if (filename) {
         var azure = require('azure-storage')
         var blobSvc = azure.createBlobService()

@@ -1,12 +1,17 @@
 //https://github.com/vbalasu/cloud/cloudGet.js
 module.exports = function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
+    var filename = req.query.filename
+    var domain = req.query.domain
 
-    if (req.query.filename || (req.body && req.body.filename)) {
+    if (filename) {
         var azure = require('azure-storage')
         var blobSvc = azure.createBlobService()
-        blobSvc.getBlobToText('blobcontainer', req.body.domain+'/'+req.body.filename, function (err, blobcontent, blob) {
-            context.res = { body : blobcontent }
+        blobSvc.getBlobToText('blobcontainer', domain+'/'+filename, function (err, blobcontent, blob) {
+            context.res = {     
+                headers: {"Content-Type": "text/html"},
+                body : blobcontent 
+            }
             context.done()
         })
     }

@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/vbalasu/cloud/issues"
   },
-  "homepage": "https://github.com/vbalasu/cloud#readme"
+  "homepage": "https://github.com/vbalasu/cloud#readme",
+  "dependencies": {
+    "azure-storage": "^2.8.0"
+  }
 }

@@ -8,7 +8,8 @@ module.exports = function (context, req) {
         var azure = require('azure-storage')
         var blobSvc = azure.createBlobService()
         blobSvc.createAppendBlobFromText('blobcontainer', domain+'/'+filename, contents, function(error, result, response){
-            context.res = { body : 'https://cloudmaticafunctions.azurewebsites.net/api/cloudGet?code=m8Qpr9D0D/FyOatpL9jnCL34ZBtMBz1U04kp4n4dia9kAfhFjNWgVQ==&filename='+encodeURIComponent(filename)+'&domain='+encodeURIComponent(domain) }
+            context.res = { headers: {"Content-Type": "text/plain"},
+                body : 'https://cloudmaticafunctions.azurewebsites.net/api/cloudGet?code=m8Qpr9D0D/FyOatpL9jnCL34ZBtMBz1U04kp4n4dia9kAfhFjNWgVQ==&filename='+encodeURIComponent(filename)+'&domain='+encodeURIComponent(domain) }
             context.done()
         })
     }

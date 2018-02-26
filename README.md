@@ -1,22 +1,22 @@
 # cloud
 
 ```
-usage: cloud.py [-h] command filename domain [contents]
+usage: cloud [-h] [--domain DOMAIN] command filename
 
 Command line interface for handling CSV files in the cloud
 
 positional arguments:
-  command     put | get
-  filename    Eg. test.csv
-  domain      Eg. public
-  contents    Eg. test.csv  (Required if command is put)
+  command          put | get
+  filename         Eg. test.csv
 
 optional arguments:
-  -h, --help  show this help message and exit
+  -h, --help       show this help message and exit
+  --domain DOMAIN  Eg. public
 
 USAGE EXAMPLES 
- python cloud.py put test.csv public test.csv 
- python cloud.py get test.csv 
+ cloud put test.csv 
+ cloud get test.csv 
+ cloud --domain public get test.csv
 ```
 
 

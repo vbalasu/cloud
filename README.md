@@ -30,4 +30,6 @@ append: Appends the contents of a local file to a remote file. This assumes that
 
 delete: Deletes a remote file
 
-In addition to using the command line interface, there is a web client at (this url - not yet implemented)
+In addition to the command line interface, there are Javascript clients
+ NodeJS: cloudClient.js
+ Browser: cloudClientBrowser.js 

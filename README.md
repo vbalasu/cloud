@@ -15,15 +15,19 @@ optional arguments:
 
 USAGE EXAMPLES 
  cloud put test.csv 
- cloud get test.csv 
+ cloud get test.csv
+ cloud append test.csv
+ cloud delete test.csv 
  cloud --domain public get test.csv
 ```
 
 
-put: Uploads local file and returns a cloud url
+put: Uploads a local file and returns a cloud url
 
-get: Retrieves file and outputs to the console
+get: Retrieves a remote file and outputs to the console
 
-append: (not yet implemented)
+append: Appends the contents of a local file to a remote file. This assumes that the remote file already exists
 
-delete: (not yet implemented)
+delete: Deletes a remote file
+
+In addition to using the command line interface, there is a web client at (this url - not yet implemented)

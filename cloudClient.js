@@ -12,9 +12,9 @@ module.exports.cloudGet = function (filename, domain) {
     baseurl = 'https://cloudmaticafunctions.azurewebsites.net/api/cloudGet?code=m8Qpr9D0D/FyOatpL9jnCL34ZBtMBz1U04kp4n4dia9kAfhFjNWgVQ=='
     url = baseurl + '&filename='+encodeURIComponent(filename)
     url = url + '&domain='+encodeURIComponent(domain)
-    rp.get(url)
-    .then((data)=>{console.log(data)})
-    .catch((err)=>{console.log(err.message)})
+    return rp.get(url)
+    .then((data)=>{return data})
+    .catch((err)=>{throw err.message})
 }
 
 module.exports.cloudPut = function (filename, domain, contents) {
@@ -28,9 +28,9 @@ module.exports.cloudPut = function (filename, domain, contents) {
         },
         json: true // Automatically stringifies the body to JSON
     }
-    rp(options)
-    .then((data)=>{console.log(data)})
-    .catch((err)=>{console.log(err.message)})
+    return rp(options)
+    .then((data)=>{return data})
+    .catch((err)=>{throw err.message})
 }
 
 module.exports.cloudAppend = function (filename, domain, contents) {
@@ -44,9 +44,9 @@ module.exports.cloudAppend = function (filename, domain, contents) {
         },
         json: true // Automatically stringifies the body to JSON
     }
-    rp(options)
-    .then((data)=>{console.log(data)})
-    .catch((err)=>{console.log(err.message)})
+    return rp(options)
+    .then((data)=>{return data})
+    .catch((err)=>{throw err.message})
 }
 
 module.exports.cloudDelete = function (filename, domain) {
@@ -59,7 +59,7 @@ module.exports.cloudDelete = function (filename, domain) {
         },
         json: true // Automatically stringifies the body to JSON
     }
-    rp(options)
-    .then((data)=>{console.log(data)})
-    .catch((err)=>{console.log(err.message)})
+    return rp(options)
+    .then((data)=>{return data})
+    .catch((err)=>{throw err.message})
 }

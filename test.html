@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="contents"></div>
+<script src='node_modules/jquery/dist/jquery.min.js'></script>
+<script src='bundle.js'></script>
+<script>
+    $(document).ready(function () {
+        module.cloudGet('test.csv','public').then((data)=>{
+            $('#contents').html(data)
+            console.log(data)
+        })
+    })
+</script>
+</body>
+</html>

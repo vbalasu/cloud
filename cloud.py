@@ -20,6 +20,26 @@ def cloudPut(filename, domain, contents):
     response = requests.request("GET", url, headers=headers, params=querystring, json=data)
     print(response.text)
 
+def cloudAppend(filename, domain, contents):
+    #https://cloudmaticafunctions.azurewebsites.net/api/cloudAppend?code=WoQI74R74MsaMzqo3cxEV3AbU6IjzxyCdWMA/3VCBp8Iy9C14JUiHw==
+    import requests
+    url = "https://cloudmaticafunctions.azurewebsites.net/api/cloudAppend"
+    querystring = {"code":"WoQI74R74MsaMzqo3cxEV3AbU6IjzxyCdWMA/3VCBp8Iy9C14JUiHw=="}
+    data = {"filename": filename, "domain": domain, "contents": contents}
+    headers = {'cache-control': "no-cache"}
+    response = requests.request("GET", url, headers=headers, params=querystring, json=data)
+    print(response.text)
+
+def cloudDelete(filename, domain):
+    #https://cloudmaticafunctions.azurewebsites.net/api/cloudDelete?code=0iDGJqrFf3zzCFkSRtkogamQUR848INQviaa/sNGKlLSSR9uics2CA==
+    import requests
+    url = "https://cloudmaticafunctions.azurewebsites.net/api/cloudDelete"
+    querystring = {"code":"0iDGJqrFf3zzCFkSRtkogamQUR848INQviaa/sNGKlLSSR9uics2CA=="}
+    data = {"filename": filename, "domain": domain}
+    headers = {'cache-control': "no-cache"}
+    response = requests.request("GET", url, headers=headers, params=querystring, json=data)
+    print(response.text)
+
 from argparse import RawTextHelpFormatter
 epilog = 'USAGE EXAMPLES \n cloud put test.csv \n cloud get test.csv \n cloud --domain public get test.csv'
 parser = argparse.ArgumentParser(description='Command line interface for handling CSV files in the cloud', epilog=epilog, formatter_class=RawTextHelpFormatter)
@@ -32,5 +52,9 @@ with open(args.filename) as f:
 
 if args.command == 'put':
     cloudPut(args.filename, args.domain, contents)
+elif args.command == 'append':
+    cloudAppend(args.filename, args.domain, contents)
+elif args.command == 'delete':
+    cloudDelete(args.filename, args.domain)
 else:
     cloudGet(args.filename, args.domain)

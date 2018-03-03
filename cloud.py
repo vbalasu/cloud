@@ -41,9 +41,9 @@ def cloudDelete(filename, domain):
     print(response.text)
 
 from argparse import RawTextHelpFormatter
-epilog = 'USAGE EXAMPLES \n cloud put test.csv \n cloud get test.csv \n cloud --domain public get test.csv'
+epilog = 'USAGE EXAMPLES \n cloud put test.csv \n cloud get test.csv \n cloud --domain public get test.csv \n cloud append test.csv \n cloud delete test.csv'
 parser = argparse.ArgumentParser(description='Command line interface for handling CSV files in the cloud', epilog=epilog, formatter_class=RawTextHelpFormatter)
-parser.add_argument('command', help='put | get')
+parser.add_argument('command', help='put | get | append | delete')
 parser.add_argument('filename', help='Eg. test.csv')
 parser.add_argument('--domain', help='Eg. public', default='public')
 args = parser.parse_args()

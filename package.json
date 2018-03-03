@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/vbalasu/cloud#readme",
   "dependencies": {
-    "azure-storage": "^2.8.0"
+    "azure-storage": "^2.8.0",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2"
   }
 }

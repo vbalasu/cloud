@@ -1,0 +1,5 @@
+var c = require('./cloudClient.js')
+//c.cloudDelete('test.csv', 'public')
+//c.cloudAppend('test.csv', 'public', 'someMoreData')
+//c.cloudPut('test.csv', 'public', 'somedata')
+c.cloudGet('test.csv', 'public')

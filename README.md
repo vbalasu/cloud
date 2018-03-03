@@ -32,4 +32,4 @@ delete: Deletes a remote file
 
 In addition to the command line interface, there are Javascript clients
  NodeJS: cloudClient.js
- Browser: cloudClientBrowser.js 
+ Browser: bundle.js (see test.html for usage example) 
